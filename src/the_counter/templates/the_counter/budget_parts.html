@@ -1,0 +1,14 @@
+{% extends "the_counter/base.html" %}
+
+{% block content %}
+
+    <p>Статьи бюджета</p>
+    <ul>
+        <li><p><a href="{% url 'the_counter:income_records' %}">Текущие доходы</a> {{ income }}</p></li>
+        <li><p><a href="{% url 'the_counter:expenses_records' %}">Текущие расходы</a> {{ expenses }}</p></li>
+        <li><p><a href="{% url 'the_counter:wish_list' %}">Лист желаний</a> {{ wishes }}</p></li>
+    </ul>
+
+    <button onclick="document.location='new_record/'">Добавить новую запись</button>
+
+{% endblock content %}

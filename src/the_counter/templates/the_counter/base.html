@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>The Counter</title>
+  </head>
+  <body>
+    <div>
+      {% if user.is_authenticated %}
+        <p>Добро пожаловать, {{  user.username }} | <a href="{% url 'users:logout' %}">Выйти</a></p>
+      {% else %}
+        <p><a href="#">Регистрация</a> | <a href="{% url 'users:login' %}">Авторизация</a></p>
+      {% endif %}
+      <hr>
+    </div>
+    <a href="{% url 'the_counter:index' %}">The Counter</a> -
+    <a href="{% url 'the_counter:budget_parts' %}">Категории</a> -
+
+     {% block content %}{% endblock content %}
+  </body>
+  <footer>
+    <hr>
+    <p>The Counter | 2020</p>
+  </footer>
+</html>

@@ -1,0 +1,12 @@
+{% extends "the_counter/base.html" %}
+
+{% block content %}
+
+<p>Редактирование записи:</p>
+<form action="{% url 'the_counter:edit_record' record.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">Сохранить изменения</button>
+</form>
+
+{% endblock content %}

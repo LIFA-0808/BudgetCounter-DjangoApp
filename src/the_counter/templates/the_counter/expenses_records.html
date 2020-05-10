@@ -1,0 +1,17 @@
+{% extends "the_counter/base.html" %}
+
+{% block content %}
+
+    <p>Раздел: Текущие расходы</p>
+    <p>Записи: </p>
+    <ul>
+        {% for record in records %}
+            <li>{{ record.date_added|date:"M d" }} : {{ record }}</li>
+                <a href="{% url 'the_counter:edit' record.id %}">Редактировать</a>
+                <a href="{% url 'the_counter:delete' record.id %}">Удалить</a>
+        {% empty %}
+            <li>Ни одной записи ещё не было добавлено.</li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}

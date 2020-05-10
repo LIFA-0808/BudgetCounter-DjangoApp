@@ -1,0 +1,12 @@
+{% extends "the_counter/base.html" %}
+
+{% block content %}
+
+<p>Добавить новую запись:</p>
+<form action="{% url 'the_counter:new_record' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">Добавить запись</button>
+</form>
+
+{% endblock content %}
