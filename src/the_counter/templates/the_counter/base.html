@@ -5,10 +5,15 @@
   </head>
   <body>
     <div>
-      {% if user.is_authenticated %}
-        <p>Добро пожаловать, {{  user.username }} | <a href="{% url 'users:logout' %}">Выйти</a></p>
+      {% if request.user.is_authenticated %}
+        <p><a href="{% url 'the_counter:index' %}">Главная</a> |
+          <a href="{% url 'users:user' %}">Профиль</a> |
+          <a href="{% url 'users:logout' %}">Выйти</a></p>
+        <p>Добро пожаловать, {{  request.user.username }}</p>
       {% else %}
-        <p><a href="#">Регистрация</a> | <a href="{% url 'users:login' %}">Авторизация</a></p>
+        <p><a href="{% url 'the_counter:index' %}">Главная</a> |
+          <a href="{% url 'users:register' %}">Регистрация</a> |
+          <a href="{% url 'users:login' %}">Авторизация</a></p>
       {% endif %}
       <hr>
     </div>

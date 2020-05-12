@@ -6,10 +6,17 @@ from . import views
 
 app_name = 'users'
 urlpatterns = [
-    # Login page
-    path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
+    # Registration
+    path('register/', views.registration_view, name='register'),
 
+    # Login page
+    path('login/', views.login_view, name='login'),
+
+    # Logout
     path('logout/', views.logout_view, name='logout'),
+
+    # User Account
+    path('user/', views.account_view, name='user'),
 
     # path('password_change/',
     #      auth_views.PasswordChangeView.as_view(template_name='users/password_change.html'),
