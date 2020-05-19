@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <title>The Counter</title>
-  </head>
-  <body>
-    <div>
-      {% if request.user.is_authenticated %}
-        <p><a href="{% url 'the_counter:index' %}">Главная</a> |
-          <a href="{% url 'users:user' %}">Профиль</a> |
-          <a href="{% url 'users:logout' %}">Выйти</a></p>
-        <p>Добро пожаловать, {{  request.user.username }}</p>
-      {% else %}
-        <p><a href="{% url 'the_counter:index' %}">Главная</a> |
-          <a href="{% url 'users:register' %}">Регистрация</a> |
-          <a href="{% url 'users:login' %}">Авторизация</a></p>
-      {% endif %}
-      <hr>
-    </div>
-    <a href="{% url 'the_counter:index' %}">The Counter</a> -
-    <a href="{% url 'the_counter:budget_parts' %}">Категории</a> -
 
-     {% block content %}{% endblock content %}
+  <head>
+    <title>The Counter</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% include 'snippets/header.html' %}
+  </head>
+
+  <body>
+
+    <!-- Body -->
+    <div class="main">
+      {% block content %}
+
+      {% endblock content %}
+    </div>
+    <!-- End Body -->
+
+    {% include 'snippets/footer.html' %}
+
   </body>
-  <footer>
-    <hr>
-    <p>The Counter | 2020</p>
-  </footer>
+
 </html>
