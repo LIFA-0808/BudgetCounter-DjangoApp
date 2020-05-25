@@ -27,19 +27,24 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
+
 
 # Application definition
 
 INSTALLED_APPS = [
+    # My apps
+    'the_counter.apps.TheCounterConfig',
+    'users.apps.UsersConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # My apps
-    'the_counter.apps.TheCounterConfig',
-    'users.apps.UsersConfig',
+
 ]
 
 MIDDLEWARE = [

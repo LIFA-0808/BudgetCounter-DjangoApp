@@ -2,19 +2,16 @@
 
 {% block content %}
 
-
-
-<h2>Профиль</h2>
-
 <form class="form-signin" method="post">{% csrf_token %}
   <h1 class="h3 mb-3 font-weight-normal">Профиль</h1>
 
   <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus
-  value="{{ account-form.initial.email }}">
+  value="{{ account_form.initial.email }}">
 
   <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required
-  value="{{ account-form.initial.username }}">
-   {% for field in account_form %}
+  value="{{ account_form.initial.username }}">
+
+    {% for field in account_form %}
         {% for error in field.errors %}
             <p style="color: red;">{{ error }}</p>
         {% endfor %}
@@ -24,38 +21,18 @@
         <div style="color:red;">
             <p>{{ account_form.non_field_errors }}</p>
         </div>
+    {% endif %}
+
+    {% if success_message %}
+    <p style="color:green; text-align:center;">{{ success_message }}</p>
     {% endif %}
 
   <button class="btn btn-lg btn-primary btn-block" type="submit">Сохранить</button>
 
 </form>
 
-<form method="post">
-    {% csrf_token %}
-    {% for field in account_form %}
-    <p>
-        {{ field.label_tag }}
-        {{ field }}
-
-        {% if field.help_text %}
-            <small style="color: grey;">{{ field.help_text }}</small>
-        {% endif %}
-    </p>
-    {% endfor %}
-
-    {% for field in account_form %}
-        {% for error in field.errors %}
-            <p style="color: red;">{{ error }}</p>
-        {% endfor %}
-    {% endfor %}
-
-    {% if account_form.non_field_errors %}
-        <div style="color:red;">
-            <p>{{ account_form.non_field_errors }}</p>
-        </div>
-    {% endif %}
-
-    <button type="submit">Сохранить</button>
-</form>
+<div class="d-flex flex-column">
+    <a class="m-auto" href="{% url 'password_change' %}">Сменить пароль</a>
+</div>
 
 {% endblock %}

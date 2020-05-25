@@ -39,9 +39,7 @@
   padding: 15px;
   margin: auto;
 }
-.form-signin .checkbox {
-  font-weight: 400;
-}
+
 .form-signin .form-control {
   position: relative;
   box-sizing: border-box;
@@ -53,7 +51,7 @@
   z-index: 2;
 }
 .form-signin input[type="email"] {
-  margin-bottom: -1px;
+  margin-bottom: 10px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -63,3 +61,22 @@
   border-top-right-radius: 0;
 }
 /* End Sing in */
+
+/* Account */
+.h3{
+    text-align: center;
+}
+.form-signin input#inputUsername {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+/* End Account */
+
+/* Register */
+.form-signin input[name="password1"] {
+  margin-bottom: -1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+/* End Register */
